@@ -1,4 +1,4 @@
-# fedroa-custom-setup
+# fedora-custom-setup
 
 #### Deleting unnecessary repositories
 ```sh
