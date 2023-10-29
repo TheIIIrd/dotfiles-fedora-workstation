@@ -1,4 +1,6 @@
-# fedora-custom-setup
+# FEDORA-CUSTOM-SETUP
+
+## Working with software
 
 #### Deleting unnecessary repositories
 ```sh
