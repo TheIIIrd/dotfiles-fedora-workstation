@@ -86,6 +86,7 @@ flatpak install flathub com.github.tchx84.Flatseal org.kde.kdenlive org.onlyoffi
 ```
 
 ### Installing mod launcher for games (especially important for Risk Of Rain 2)
+
 > Download the latest release of the program
 > https://github.com/ebkr/r2modmanPlus/releases
 
@@ -111,7 +112,8 @@ sudo rpm -ivh <programname>
 ```
 
 #### Installing the open source version of the Minecraft Launcher
-> Download the latest release of the program. We need a .jar version of the game.
+
+> Download the latest release of the program (we need a .jar version of the game)
 > https://tlaun.ch/jar
 
 ```sh
@@ -129,7 +131,10 @@ Categories=Game;
 ```
 
 #### Installing a program for fan control on MSI notebooks
+
+> Download the latest version of the software
+> https://github.com/dmitry-s93/MControlCenter/releases/
+
 ```sh
-wget https://github.com/dmitry-s93/MControlCenter/releases/download/0.4.0/MControlCenter-0.4.0-bin.tar.gz
 sudo ./install.sh
 ```
