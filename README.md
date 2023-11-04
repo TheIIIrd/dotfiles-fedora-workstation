@@ -185,3 +185,131 @@ A system for managing special parameters on MSI laptops.
 ```sh
 sudo ./install.sh
 ```
+
+## System customization
+
+### Icon setup
+
+> To make icons available to all users of the system, instead of ```./install.sh standard```, run ```sudo ./install.sh standard```.
+
+```sh
+# traditional icons
+git clone https://github.com/vinceliuice/Tela-icon-theme.git
+cd Tela-icon-theme
+./install.sh standard
+
+# rounded icons
+git clone https://github.com/vinceliuice/Tela-circle-icon-theme.git
+cd Tela-circle-icon-theme
+./install.sh standard
+```
+
+### Installing the unofficial GTK3 port of libadwaita
+
+```sh
+sudo dnf install adw-gtk3-theme
+
+# adding support in flatpak applications
+flatpak install org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
+```
+
+### List of useful GNOME extensions
+
+```
+# changing keyboard layout without a popup window
+quick-lang-switch@ankostis.gmail.com
+
+# application icon running in the background
+appindicatorsupport@rgcjonas.gmail.com
+
+# weather display for your region
+openweather-extension@jenslody.de
+
+# Gnome Shell interface blur
+blur-my-shell@aunetx
+
+# clipboard manager for Gnome Shell
+clipboard-indicator@tudmotu.com
+
+# sleep mode on/off
+caffeine@patapon.info
+
+# system performance monitoring
+Vitals@CoreCoding.com
+
+# advanced Gnome Shell settings
+just-perfection-desktop@just-perfection
+```
+
+### ZSH installation and configuration
+
+Install zsh and run it.
+
+> Zsh will ask you to configure it after the first run.
+> Look at all the items and click 0 in each if you are satisfied.
+
+```sh
+sudo dnf install zsh
+
+# how to run
+zsh
+```
+
+> This font supports icons.
+> It is necessary for correct output of information in the terminal.
+
+```sh
+wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
+
+sudo mv MesloLGS\ NF\ Regular.ttf /usr/share/fonts/
+```
+
+### Oh-my-zsh framework
+
+Oh-my-zsh will extend the capabilities of regular zsh.
+
+```sh
+sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+### Plugins for zsh
+
+These extensions will provide hints while using zsh.
+
+```sh
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+```
+
+> After installing the zsh extensions, you should put them in ```.zshrc```.
+> Open the config and find the line ```plugins=(git)```.
+> It should be changed to ```plugins=(git zsh-autosuggestions zsh-syntax-highlighting)```.
+
+```sh
+nvim .zshrc
+
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+
+# restart the config
+source .zshrc
+```
+
+### P10K theme
+
+P10k will make zsh more beautiful.
+
+```sh
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+```
+
+> After installing the 10k, you should put them in ```.zshrc```.
+> You must replace the value of ZSH_THEME with ```ZSH_THEME="powerlevel10k/powerlevel10k"```.
+
+```sh
+nvim .zshrc
+
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+# restart the config
+source .zshrc
+```
