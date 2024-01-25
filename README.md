@@ -63,8 +63,11 @@ When installing drivers, it is very important to keep an eye on CPU load.
 # open gnome-system-monitor and monitor CPU load
 sudo dnf install akmod-nvidia
 sudo dnf install xorg-x11-drv-nvidia-cuda
+```
 
-# reboot and check inxi
+Reboot and check inxi
+
+```sh
 inxi -G
 ```
 
