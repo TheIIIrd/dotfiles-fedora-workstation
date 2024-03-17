@@ -21,7 +21,7 @@ The package manager is initially quite slow. These settings will speed it up.
 sudo nano /etc/dnf/dnf.conf
 
 # add these lines to the config
-max_parallel_downloads=6
+max_parallel_downloads=8
 fastestmirror=True
 defaultyes=True
 ```
@@ -39,7 +39,7 @@ sudo dnf remove gnome-contacts gnome-weather gnome-maps gnome-calendar cheese to
 Basic packages that we will need as we work with the system.
 
 ```sh
-sudo dnf install git wget curl inxi neovim neofetch java-latest-openjdk python python3-pip
+sudo dnf install git wget curl inxi neovim fastfetch java-latest-openjdk gcc-c++ clang python python3-pip
 
 # choose the latest version of java
 sudo update-alternatives --config java
@@ -84,7 +84,7 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 This is the base.
 
 ```sh
-sudo dnf install gitg gparted gwe inkscape steam transmission krita gnome-tweaks torbrowser-launcher grub-customizer dconf-editor vlc
+sudo dnf install steam gamemode torbrowser-launcher transmission-gtk vlc inkscape krita gparted gnome-tweaks dconf-editor
 ```
 
 ### Virt-manager installation
@@ -92,7 +92,7 @@ sudo dnf install gitg gparted gwe inkscape steam transmission krita gnome-tweaks
 One of the best virtual machine managers.
 
 ```sh
-sudo dnf install -y qemu-kvm libvirt virt-install bridge-utils virt-manager libvirt-devel virt-top libguestfs-tools guestfs-tools
+sudo dnf install -y qemu-kvm libvirt virt-install bridge-utils virt-manager libvirt-devel libguestfs-tools guestfs-tools
 sudo usermod -G libvirt -a <username>
 sudo systemctl enable libvirtd
 ```
@@ -105,18 +105,9 @@ A free way to deploy a small network to communicate with computers outside the l
 sudo dnf install zerotier-one
 sudo systemctl enable zerotier-one.service
 
-# or you could do this
+# or you could do this (! maybe to old !)
 curl -s 'https://raw.githubusercontent.com/zerotier/ZeroTierOne/master/doc/contact%40zerotier.com.gpg' | gpg --import && \  
 if z=$(curl -s 'https://install.zerotier.com/' | gpg); then echo "$z" | sudo bash; fi
-```
-
-### ClamAV antivirus installation
-
-An open source antivirus from Cisco.
-
-```sh
-sudo dnf install clamtk
-sudo freshclam
 ```
 
 ### Flatpak application installation
@@ -124,7 +115,7 @@ sudo freshclam
 A huge suite of software for work and play.
 
 ```sh
-flatpak install flathub com.github.tchx84.Flatseal org.kde.kdenlive org.onlyoffice.desktopeditors com.orama_interactive.Pixelorama com.github.Matoking.protontricks io.github.fabrialberio.pinapp com.github.GradienceTeam.Gradience com.vscodium.codium fr.romainvigier.MetadataCleaner com.belmoussaoui.Authenticator com.github.ADBeveridge.Raider org.darktable.Darktable org.ppsspp.PPSSPP io.github.spacingbat3.webcord io.github.realmazharhussain.GdmSettings com.mattjakeman.ExtensionManager com.vysp3r.ProtonPlus com.heroicgameslauncher.hgl
+flatpak install flathub com.github.tchx84.Flatseal org.kde.kdenlive org.onlyoffice.desktopeditors com.orama_interactive.Pixelorama com.github.Matoking.protontricks io.github.fabrialberio.pinapp com.github.GradienceTeam.Gradience com.vscodium.codium io.github.realmazharhussain.GdmSettings com.mattjakeman.ExtensionManager com.vysp3r.ProtonPlus com.heroicgameslauncher.hgl dev.vencord.Vesktop
 ```
 
 ### Installing mod launcher for games (especially important for Risk Of Rain 2)
@@ -136,6 +127,9 @@ Native launcher for modding games.
 
 ```sh
 sudo rpm -ivh <programname>
+
+# or use AppImage
+./<programname>.AppImage
 ```
 
 ### Installing the native engine for the game STALKER
@@ -162,7 +156,7 @@ sudo rpm -ivh <programname>
 
 Launcher with open source code and convenient settings.
 
-> Download the latest release of the program (we need a .jar version of the game)
+> Download the latest release of the program (we need a .jar version of the game) (! maybe to old !)
 > https://tlaun.ch/jar
 
 ```sh
@@ -200,12 +194,12 @@ sudo ./install.sh
 # traditional icons
 git clone https://github.com/vinceliuice/Tela-icon-theme.git
 cd Tela-icon-theme
-./install.sh standard
+sudo ./install.sh standard
 
 # rounded icons
 git clone https://github.com/vinceliuice/Tela-circle-icon-theme.git
 cd Tela-circle-icon-theme
-./install.sh standard
+sudo ./install.sh standard
 ```
 
 ### Installing the unofficial GTK3 port of libadwaita
