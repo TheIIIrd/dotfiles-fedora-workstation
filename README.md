@@ -129,7 +129,7 @@ Native launcher for modding games.
 sudo rpm -ivh <package_name>
 
 # or use AppImage
-./<programname>.AppImage
+./<package_name>.AppImage
 ```
 
 ### Installing the native engine for the game STALKER
