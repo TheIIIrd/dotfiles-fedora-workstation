@@ -126,7 +126,7 @@ Native launcher for modding games.
 > https://github.com/ebkr/r2modmanPlus/releases
 
 ```sh
-sudo rpm -ivh <programname>
+sudo rpm -ivh <package_name>
 
 # or use AppImage
 ./<programname>.AppImage
@@ -149,7 +149,7 @@ cmake .. -DCMAKE_INSTALL_LIBDIR=lib64 -DCMAKE_INSTALL_PREFIX=/usr
 make -j<numberofcores>
 
 QA_RPATHS=$(( 0x0001|0x0010 )) make package
-sudo rpm -ivh <programname>
+sudo rpm -ivh <package_name>
 ```
 
 ### Installing the open source version of the Minecraft Launcher
@@ -194,12 +194,12 @@ sudo ./install.sh
 # traditional icons
 git clone https://github.com/vinceliuice/Tela-icon-theme.git
 cd Tela-icon-theme
-sudo ./install.sh standard
+./install.sh standard
 
 # rounded icons
 git clone https://github.com/vinceliuice/Tela-circle-icon-theme.git
 cd Tela-circle-icon-theme
-sudo ./install.sh standard
+./install.sh standard
 ```
 
 ### Installing the unofficial GTK3 port of libadwaita
