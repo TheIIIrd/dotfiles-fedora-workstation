@@ -39,7 +39,7 @@ sudo dnf remove gnome-contacts gnome-weather gnome-maps gnome-calendar cheese to
 Basic packages that we will need as we work with the system.
 
 ```sh
-sudo dnf install git wget curl inxi neovim fastfetch java-latest-openjdk gcc-c++ clang python python3-pip
+sudo dnf install git wget curl inxi zsh neovim fastfetch java-latest-openjdk python python3-pip gcc-c++ clang
 
 # choose the latest version of java
 sudo update-alternatives --config java
@@ -51,6 +51,8 @@ The community repository allows you to greatly expand the list of available soft
 
 ```sh
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+sudo dnf config-manager --enable fedora-cisco-openh264
 
 sudo dnf groupupdate core
 ```
@@ -104,10 +106,6 @@ A free way to deploy a small network to communicate with computers outside the l
 ```sh
 sudo dnf install zerotier-one
 sudo systemctl enable zerotier-one.service
-
-# or you could do this (! maybe to old !)
-curl -s 'https://raw.githubusercontent.com/zerotier/ZeroTierOne/master/doc/contact%40zerotier.com.gpg' | gpg --import && \  
-if z=$(curl -s 'https://install.zerotier.com/' | gpg); then echo "$z" | sudo bash; fi
 ```
 
 ### Flatpak application installation
@@ -115,7 +113,7 @@ if z=$(curl -s 'https://install.zerotier.com/' | gpg); then echo "$z" | sudo bas
 A huge suite of software for work and play.
 
 ```sh
-flatpak install flathub com.github.tchx84.Flatseal org.kde.kdenlive org.onlyoffice.desktopeditors com.orama_interactive.Pixelorama com.github.Matoking.protontricks io.github.fabrialberio.pinapp com.github.GradienceTeam.Gradience com.vscodium.codium io.github.realmazharhussain.GdmSettings com.mattjakeman.ExtensionManager com.vysp3r.ProtonPlus com.heroicgameslauncher.hgl dev.vencord.Vesktop
+flatpak install flathub com.github.tchx84.Flatseal org.kde.kdenlive org.onlyoffice.desktopeditors com.orama_interactive.Pixelorama com.github.Matoking.protontricks com.vscodium.codium io.github.realmazharhussain.GdmSettings com.mattjakeman.ExtensionManager com.vysp3r.ProtonPlus com.heroicgameslauncher.hgl dev.vencord.Vesktop
 ```
 
 ### Installing mod launcher for games (especially important for Risk Of Rain 2)
@@ -130,6 +128,23 @@ sudo rpm -ivh <package_name>
 
 # or use AppImage
 ./<package_name>.AppImage
+```
+
+> Create desktop shortcut
+
+```sh
+nvim .local/share/applications/r2modman.desktop
+
+# add it to the file
+[Desktop Entry]
+Name=R2modman
+Comment=Infinite mod generator
+Exec=/path/to/r2modman.AppImage --no-sandbox
+Icon=fuse-emulator
+Terminal=false
+Type=Application
+Categories=Game;
+MimeType=x-scheme-handler/ror2mm;
 ```
 
 ### Installing the native engine for the game STALKER
