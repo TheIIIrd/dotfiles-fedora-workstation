@@ -282,7 +282,7 @@ sudo mv MesloLGS\ NF\ Regular.ttf /usr/share/fonts/
 Oh-my-zsh will extend the capabilities of regular zsh.
 
 ```sh
-sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 ```
 
 ### Plugins for zsh
