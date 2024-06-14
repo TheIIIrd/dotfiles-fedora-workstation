@@ -1,5 +1,5 @@
 # FEDORA-CUSTOM-SETUP
-One more way to customize fedora
+One more way to customize fedora.
 
 ## Working with software
 
