@@ -1,5 +1,5 @@
-# FEDORA-CUSTOM-SETUP
-One more way to customize fedora.
+# **fedora-workstation dotfiles**
+One more way to customize Fedora
 
 ## Working with software
 
